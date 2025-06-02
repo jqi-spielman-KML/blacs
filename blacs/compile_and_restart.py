@@ -71,7 +71,8 @@ class CompileAndRestart(QDialog):
         self.ui.label.setText(msg)
         self.output_box.output(msg + '\n')
         runmanager.compile_labscript_with_globals_files_async(self.labscript_file,
-            self.globals_files, self.tempfilename, self.output_box.port, self.finished_compiling)
+            self.globals_files, self.tempfilename, self.output_box.port, self.finished_compiling,
+            self.blacs['experiment_queue'].BLACS.analysis_submission._server)
     
     @inmain_decorator(True)    
     def finished_compiling(self, success):
