@@ -852,10 +852,8 @@ class QueueManager(object):
                     data_group = hdf5_file['/'].create_group('data')
                     # stamp with the run time of the experiment
                     hdf5_file.attrs['run time'] = run_time.strftime('%Y%m%dT%H%M%S.%f')
-                    
-                    # Get lyse host name from file if present in shot file
                     lyse_host = hdf5_file.attrs['lyse_host']
-                    
+        
                 error_condition = False
                 response_list = {}
                 # Keep transitioning tabs to manual mode and waiting on them until they
